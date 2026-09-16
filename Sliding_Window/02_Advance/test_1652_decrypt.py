@@ -2,21 +2,28 @@ from typing import List
 
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
-        # 1.初始化窗口大小，指针，sum变量,ret数组等
+        n = len (code)
+        ret = [0] * n
+        absK =  abs(k)
+        if k == 0:
+            return ret
+        if k > 0 :
+            L,R = 1, k
+        else:
+            L,R = n + k , n - 1
         
-        #2.确认循环起始结束值，以循环index视为right指针
-        
-        #3.计算窗口值，存储至ret数组
-        
-        #4.计算得到left指针，移动left指针计算移动后的窗口值
-        
-        #5.返回结果数组
+        win_sum = sum(code[L : R + 1])
+        for i in range(n):
+            ret[i] = win_sum
+            win_sum -= code[L % n]
+            L+=1
+            R+=1
+            win_sum += code[R % n]
             
-           
-       
-
+        return ret
 
 def testMinSwap():
     sol = Solution()
-    
-    
+    assert(sol.decrypt([5,7,1,4],3)) == [12,10,16,13]
+    assert(sol.decrypt([1,2,3,4],0)) == [0,0,0,0]
+    assert(sol.decrypt([2,4,9,3],-2)) == [12,5,6,13]
