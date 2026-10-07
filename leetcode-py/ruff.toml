@@ -1,0 +1,9 @@
+# 允许更长的单行代码（刷题时经常写长列表/推导式，默认 88 会频繁折行）
+line-length = 120
+
+[lint]
+# 刷题专属忽略规则
+ignore = [
+    "F401", # 忽略 "imported but unused" (方便保留 collections/typing 等常用导入)
+    "F403", # 忽略 "from typing import *" 的警告
+]
