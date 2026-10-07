@@ -32,4 +32,4 @@ def testMaxProfit():
     sol = Solution()
     assert sol.maxProfit([4,2,8],[-1,0,1], 2) == 10
     assert sol.maxProfit([5,4,3],[1,1,0], 2) == 9
-    assert sol.maxProfit([4,7,13],[-1,-1,0], 2) == 30
+    assert sol.maxProfit([4,7,13],[-1,-1,0], 2) == 9
